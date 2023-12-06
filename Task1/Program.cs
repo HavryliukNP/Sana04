@@ -30,6 +30,9 @@ int stringWithZero = Matrix.StringWithZero(myArray);
 Console.WriteLine($"The number of columns that contain at least one zero element: " +
     $"{stringWithZero}");
 
+int seriesIdenticalElements = Matrix.SeriesIdenticalElements(myArray);
+Console.WriteLine($"The number of the line with the longest series of identical " +
+    $"elements: {seriesIdenticalElements}");
 
 
 

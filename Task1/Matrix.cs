@@ -8,7 +8,7 @@ namespace Task1
 {
     public class Matrix
     {
-        public static int[,] RandomMatrix(int N, int M, int MinValue = -10, int MaxValue = 10)
+        public static int[,] RandomMatrix(int N, int M, int MinValue = 1, int MaxValue = 3)
         {
             int[,] array = new int[N, M];
             Random random = new Random();
@@ -66,9 +66,33 @@ namespace Task1
             }
             return count;
         }
-        public static int TransponMatrix(int[,] array)
+        public static int SeriesIdenticalElements(int[,] array)
         {
-            return 0;
+            int[] myArray = new int[array.GetLength(0)];
+            int count;
+            int temp;
+            int index = -1;
+            for (int i = 0; i < array.GetLength(0); i++) 
+            {
+                count = 1;
+                temp = 1;
+                for (int j = 0; j < array.GetLength(1) - 1; j++)
+                {
+                    if (array[i, j] == array[i, j + 1]) temp++;
+                    if (temp > count) count = temp;
+                    if (array[i, j] != array[i, j + 1]) temp = 1;
+                }
+                myArray[i] = count;
+                Console.WriteLine(count);
+            }
+            temp = myArray[0];
+            for (int i = 1; i < myArray.Length; i++)
+                if (temp < myArray[i])
+                {
+                    temp = myArray[i];
+                    index = i;
+                }
+            return index;
         }
     }
 }
