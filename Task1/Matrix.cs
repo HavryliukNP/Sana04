@@ -31,13 +31,13 @@ namespace Task1
         }
         public static int MaxNumberMore(int[,] array)
         {
-            int maxNumber = array[0, 0];
+            int maxNumber = 0;
             for (int i = 0; i < array.GetLength(0); i++)
-                for (int j = 1; j < array.GetLength(1); j++)
+                for (int j = 0; j < array.GetLength(1); j++)
                     for (int n = 0; n < array.GetLength(0); n++)
-                        for (int m = 1; m < array.GetLength(1); m++)
-                            if (array[i, j] > maxNumber && array[i, j] == array[n, m])
-                                maxNumber = array[i, j];
+                        for (int m = 0; m < array.GetLength(1); m++)
+                            if (array[i, j] > maxNumber && array[i, j] == array[n, m] 
+                                && i != n && j != m) maxNumber = array[i, j];
             return maxNumber;
         }
         public static int CountStringsWithoutZeros(int[,] array)
