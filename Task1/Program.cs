@@ -29,3 +29,17 @@ Console.WriteLine($"The number of lines that do not contain any null elements: "
 int stringWithZero = Matrix.StringWithZero(myArray);
 Console.WriteLine($"The number of columns that contain at least one zero element: " +
     $"{stringWithZero}");
+
+
+
+
+
+
+
+Console.WriteLine("Transposed matrix: ");
+for (int i = 0; i < myArray.GetLength(1); i++)
+{
+    for (int j = 0; j < myArray.GetLength(0); j++)
+        Console.Write($"{myArray[j, i]}\t");
+    Console.WriteLine("\n");
+}

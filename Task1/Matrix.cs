@@ -56,15 +56,19 @@ namespace Task1
         public static int StringWithZero(int[,] array)
         {
             int count = 0;
-            for (int i = 0; i < array.GetLength(0); i++)
+            for (int i = 0; i < array.GetLength(1); i++)
             {
                 int zero = 0;
-                for (int j = 0; j < array.GetLength(1); j++)
+                for (int j = 0; j < array.GetLength(0); j++)
                     if (array[j, i] == 0) zero++;
                 if (zero != 0) count++;
                 zero = 0;
             }
             return count;
+        }
+        public static int TransponMatrix(int[,] array)
+        {
+            return 0;
         }
     }
 }
