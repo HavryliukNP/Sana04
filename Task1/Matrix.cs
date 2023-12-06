@@ -8,7 +8,7 @@ namespace Task1
 {
     public class Matrix
     {
-        public static int[,] RandomMatrix(int N, int M, int MinValue = -100, int MaxValue = 100)
+        public static int[,] RandomMatrix(int N, int M, int MinValue = -10, int MaxValue = 10)
         {
             int[,] array = new int[N, M];
             Random random = new Random();
@@ -25,10 +25,33 @@ namespace Task1
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
-                    if(array[i, j] > 0)
-                        Count++;
+                    if (array[i, j] > 0) Count++;
             }
-         return Count;
+            return Count;
+        }
+        public static int MaxNumberMore(int[,] array)
+        {
+            int maxNumber = array[0, 0];
+            for (int i = 0; i < array.GetLength(0); i++)
+                for (int j = 1; j < array.GetLength(1); j++)
+                    for (int n = 0; n < array.GetLength(0); n++)
+                            for (int m = 1; m < array.GetLength(1); m++)
+                            if (array[i, j] > maxNumber && array[i, j] == array[n, m])
+                                maxNumber = array[i, j];
+            return maxNumber;        
+        }
+        public static int CountStringsWithoutZeros(int[,] array)
+        {
+            int count = 0;
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                int zero = 0;
+                for (int j = 0; j < array.GetLength(1); j++)
+                    if (array[i, j] == 0) zero++;
+                if(zero == 0) count++;
+                zero = 0;
+            }
+            return count;
         }
     }
 }

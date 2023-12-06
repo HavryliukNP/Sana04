@@ -18,3 +18,10 @@ for (int i = 0; i < myArray.GetLength(0); i++)
 
 int countPositive = Matrix.CountPositive(myArray);
 Console.WriteLine($"Count positive elements: {countPositive}");
+
+int maxNumberMore = Matrix.MaxNumberMore(myArray);
+Console.WriteLine($"The maximum number that occurs more than once: {maxNumberMore}");
+
+int countStringsWithoutZeros = Matrix.CountStringsWithoutZeros(myArray);
+Console.WriteLine($"The number of lines that do not contain any null elements: " +
+    $"{countStringsWithoutZeros}");
