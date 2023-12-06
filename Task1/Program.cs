@@ -25,3 +25,7 @@ Console.WriteLine($"The maximum number that occurs more than once: {maxNumberMor
 int countStringsWithoutZeros = Matrix.CountStringsWithoutZeros(myArray);
 Console.WriteLine($"The number of lines that do not contain any null elements: " +
     $"{countStringsWithoutZeros}");
+
+int stringWithZero = Matrix.StringWithZero(myArray);
+Console.WriteLine($"The number of columns that contain at least one zero element: " +
+    $"{stringWithZero}");

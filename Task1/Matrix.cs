@@ -35,10 +35,10 @@ namespace Task1
             for (int i = 0; i < array.GetLength(0); i++)
                 for (int j = 1; j < array.GetLength(1); j++)
                     for (int n = 0; n < array.GetLength(0); n++)
-                            for (int m = 1; m < array.GetLength(1); m++)
+                        for (int m = 1; m < array.GetLength(1); m++)
                             if (array[i, j] > maxNumber && array[i, j] == array[n, m])
                                 maxNumber = array[i, j];
-            return maxNumber;        
+            return maxNumber;
         }
         public static int CountStringsWithoutZeros(int[,] array)
         {
@@ -48,7 +48,20 @@ namespace Task1
                 int zero = 0;
                 for (int j = 0; j < array.GetLength(1); j++)
                     if (array[i, j] == 0) zero++;
-                if(zero == 0) count++;
+                if (zero == 0) count++;
+                zero = 0;
+            }
+            return count;
+        }
+        public static int StringWithZero(int[,] array)
+        {
+            int count = 0;
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                int zero = 0;
+                for (int j = 0; j < array.GetLength(1); j++)
+                    if (array[j, i] == 0) zero++;
+                if (zero != 0) count++;
                 zero = 0;
             }
             return count;
