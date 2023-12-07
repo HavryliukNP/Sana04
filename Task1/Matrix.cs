@@ -99,9 +99,12 @@ namespace Task1
             int sum = 0;
             for (int i = 0; i < array.GetLength(1); i++)
                 for (int j = 0; j < array.GetLength(0); j++)
+                {
                     if (array[j, i] < 0)
                         for (int m = 0; m < array.GetLength(0); m++)
                             sum += array[m, i];
+                    break;
+                }  
             return sum;
         }
         public static int SumColumnsNotNegativeElement(int[,] array)
@@ -109,9 +112,15 @@ namespace Task1
             int sum = 0;
             for (int i = 0; i < array.GetLength(1); i++)
                 for (int j = 0; j < array.GetLength(0); j++)
-                    if (array[j, i] >= 0) 
+                {
+                    if (array[j, i] >= 0)
+                    {
                         for (int m = 0; m < array.GetLength(0); m++)
                             sum += array[m, i];
+                        break;
+                    }
+                        
+                }
             return sum;
         }
         public static int SumsElementsDiagonalsParallel(int[,] array)
@@ -119,17 +128,21 @@ namespace Task1
             
             int max = Math.Max(array.GetLength(0), array.GetLength(1));
             int[] myArray = new int[array.GetLength(0) + array.GetLength(1)];
-            for (int i = 1; i <= array.GetLength(0); i++)
+            for (int i = 1; i < array.GetLength(0); i++)
             {
                 int sumU = 0;
                 int sumD = 0;
-                for (int j = 0; j <= array.GetLength(1) - i; j++)
+                for (int j = 0; j < array.GetLength(0); j++)
                 {
-                    if (j + i < array.GetLength(1)) 
-                        sumU += array[j, j + i];
-
-                    if (j + i < array.GetLength(0))
-                        sumD += array[j + i, j];
+                    if (i + j + 1 > array.GetLength(1))
+                        break;
+                    sumU += array[j, i + j];
+                }
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    if (i + j + 1 > array.GetLength(0))
+                        break;
+                    sumD += array[i + j, j];
                 }
                 myArray[i - 1] = sumU;
                 myArray[myArray.Length - i] = sumD;
