@@ -34,6 +34,14 @@ int seriesIdenticalElements = Matrix.SeriesIdenticalElements(myArray);
 Console.WriteLine($"The number of the line with the longest series of identical " +
     $"elements: {seriesIdenticalElements}");
 
+int sumsElementsDiagonalsParallel = Matrix.SumsElementsDiagonalsParallel(myArray);
+Console.WriteLine($"The maximum among the sums of the elements of the diagonals " +
+    $"parallel to the main diagonal of the matrix: {sumsElementsDiagonalsParallel}");
+
+
+int sumColumnsNotNegativeElement = Matrix.SumColumnsNotNegativeElement(myArray);
+Console.WriteLine($"The sum of the elements in those columns that do not contain " +
+    $"negative elements: {sumColumnsNotNegativeElement}");
 
 
 int sumColumnsNegativeElement = Matrix.SumColumnsNegativeElement(myArray);
