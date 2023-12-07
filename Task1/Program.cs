@@ -36,8 +36,9 @@ Console.WriteLine($"The number of the line with the longest series of identical 
 
 
 
-
-
+int sumColumnsNegativeElement = Matrix.SumColumnsNegativeElement(myArray);
+Console.WriteLine($"The sum of elements in those columns that contain at least one " +
+    $"negative element: {sumColumnsNegativeElement}");
 
 Console.WriteLine("Transposed matrix: ");
 for (int i = 0; i < myArray.GetLength(1); i++)

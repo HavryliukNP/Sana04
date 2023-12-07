@@ -8,7 +8,7 @@ namespace Task1
 {
     public class Matrix
     {
-        public static int[,] RandomMatrix(int N, int M, int MinValue = 1, int MaxValue = 3)
+        public static int[,] RandomMatrix(int N, int M, int MinValue = -1, int MaxValue = 10)
         {
             int[,] array = new int[N, M];
             Random random = new Random();
@@ -83,7 +83,6 @@ namespace Task1
                     if (array[i, j] != array[i, j + 1]) temp = 1;
                 }
                 myArray[i] = count;
-                Console.WriteLine(count);
             }
             temp = myArray[0];
             for (int i = 1; i < myArray.Length; i++)
@@ -93,6 +92,16 @@ namespace Task1
                     index = i;
                 }
             return index;
+        }
+        public static int SumColumnsNegativeElement(int[,] array)
+        {
+            int sum = 0;
+            for (int i = 0; i < array.GetLength(1); i++)
+                for (int j = 0; j < array.GetLength(0); j++)
+                    if (array[j, i] < 0)
+                        for (int m = 0; m < array.GetLength(0); m++)
+                            sum += array[m, i];
+            return sum;
         }
     }
 }
