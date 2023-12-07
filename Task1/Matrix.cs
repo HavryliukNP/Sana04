@@ -114,12 +114,9 @@ namespace Task1
                 for (int j = 0; j < array.GetLength(0); j++)
                 {
                     if (array[j, i] >= 0)
-                    {
                         for (int m = 0; m < array.GetLength(0); m++)
                             sum += array[m, i];
-                        break;
-                    }
-                        
+                    break;
                 }
             return sum;
         }
