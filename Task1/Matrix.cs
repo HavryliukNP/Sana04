@@ -99,26 +99,45 @@ namespace Task1
             int sum = 0;
             for (int i = 0; i < array.GetLength(1); i++)
                 for (int j = 0; j < array.GetLength(0); j++)
-                {
                     if (array[j, i] < 0)
+                    {
                         for (int m = 0; m < array.GetLength(0); m++)
                             sum += array[m, i];
-                    break;
-                }  
-            return sum;
+                        break;
+                    }
+                    return sum;
         }
         public static int SumColumnsNotNegativeElement(int[,] array)
         {
+            int count;
             int sum = 0;
             for (int i = 0; i < array.GetLength(1); i++)
+            {
+                count = 0;
                 for (int j = 0; j < array.GetLength(0); j++)
-                {
                     if (array[j, i] >= 0)
-                        for (int m = 0; m < array.GetLength(0); m++)
-                            sum += array[m, i];
-                    break;
-                }
+                        count++;
+                if(count == array.GetLength(0))
+                    for (int m = 0; m < array.GetLength(0); m++)
+                        sum += array[m, i];
+            }
             return sum;
+        }
+        public static int DobRowsNotNegativeElement(int[,] array)
+        {
+            int count;
+            int dob = 1;
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                count = 0;
+                for (int j = 0; j < array.GetLength(1); j++)
+                    if (array[i, j] > 0)
+                        count++;
+                if (count == array.GetLength(1))
+                    for (int m = 0; m < array.GetLength(1); m++)
+                        dob *= array[i, m];
+            }
+            return dob;
         }
         public static int SumsElementsDiagonalsParallel(int[,] array)
         {
