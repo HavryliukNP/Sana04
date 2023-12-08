@@ -47,6 +47,9 @@ int sumColumnsNotNegativeElement = Matrix.SumColumnsNotNegativeElement(myArray);
 Console.WriteLine($"The sum of the elements in those columns that do not contain " +
     $"negative elements: {sumColumnsNotNegativeElement}");
 
+int sumsModulsElementsDiagonalsParallel = Matrix.SumsModulsElementsDiagonalsParallel(myArray);
+Console.WriteLine($"The minimum among the sums of the moduli of the elements of the diagonals " +
+    $"parallel to the side diagonal of the matrix: {sumsModulsElementsDiagonalsParallel}");
 
 int sumColumnsNegativeElement = Matrix.SumColumnsNegativeElement(myArray);
 Console.WriteLine($"The sum of elements in those columns that contain at least one " +

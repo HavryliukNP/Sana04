@@ -9,7 +9,7 @@ namespace Task1
 {
     public class Matrix
     {
-        public static int[,] RandomMatrix(int N, int M, int MinValue = -1, int MaxValue = 10)
+        public static int[,] RandomMatrix(int N, int M, int MinValue = -5, int MaxValue = 10)
         {
             int[,] array = new int[N, M];
             Random random = new Random();
@@ -141,8 +141,6 @@ namespace Task1
         }
         public static int SumsElementsDiagonalsParallel(int[,] array)
         {
-            
-            int max = Math.Max(array.GetLength(0), array.GetLength(1));
             int[] myArray = new int[array.GetLength(0) + array.GetLength(1)];
             for (int i = 1; i < array.GetLength(0); i++)
             {
@@ -167,6 +165,44 @@ namespace Task1
             for (int i = 1; i < myArray.Length; i++) 
                 if (maxSum < myArray[i]) maxSum = myArray[i];
             return maxSum;
+        }
+        public static int SumsModulsElementsDiagonalsParallel(int[,] array)
+        {
+            int index;
+            if (array.GetLength(0) == array.GetLength(1))
+                index = 1;
+            index = 0;
+            int[] myArray = new int[array.GetLength(0) + array.GetLength(1) - 2];
+            for (int i = 0; i < array.GetLength(0) - index; i++)
+            {
+                int sumU = 0;
+                int sumD = 0;
+                for (int j = 1; j <= array.GetLength(0); j++)
+                {
+                    if (array.GetLength(1) - j - 1 - i < 0)
+                        break;
+                    else
+                    {
+                        sumU += Math.Abs(array[j - 1, array.GetLength(1) - j - 1 - i]);
+                        myArray[i] = sumU;
+                    }
+                }
+                for (int j = 1; j < array.GetLength(1); j++)
+                {
+                    if (j + i == array.GetLength(0))
+                        break;
+                    else
+                    {
+                        sumD += Math.Abs(array[j + i, array.GetLength(1) - j]);
+                        if (myArray.Length - array.GetLength(0) + i + 1 < myArray.Length)
+                            myArray[myArray.Length - array.GetLength(0) + i + 1] = sumD;
+                    }
+                }
+            }
+            int minSum = myArray[0];
+            for (int i = 1; i < myArray.Length; i++)
+                if (minSum > myArray[i]) minSum = myArray[i];
+            return minSum;
         }
     }
 }
